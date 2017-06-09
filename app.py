@@ -13,7 +13,7 @@ def main():
 	#options.port  = int(raw_input('Ingrese el puerto:'))
 	#http_server.listen(options.port)
 	#print "Instancia del servidor Tornado ejecutándose en el puerto : " + str(options.port)
-	http_server.listen(8888)
+	http_server.listen(8888, address = '10.151.52.107')
 	tornado.ioloop.IOLoop.current().start()
 
 if __name__ == "__main__":

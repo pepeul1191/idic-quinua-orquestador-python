@@ -12,7 +12,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 routes = [
 	(r'/', MainHandler),
-	(r'/login', AccesosLoginIndexHandler),
+	(r'/login/acceder', AccesosLoginIndexHandler),
 	(r'/usuario/validar_correo_repetido', AccesosUsuarioValidarCorreoRepetidoHandler),
 	(r'/usuario/validar_usuario_repetido', AccesosUsuarioValidarUsuarioRepetidoHandler),
 	(r'/session/logueado', AccesosSessionLogueadoHandler),

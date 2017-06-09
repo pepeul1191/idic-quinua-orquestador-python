@@ -13,6 +13,7 @@ class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
         self.set_header('Content-type', 'text/html; charset=UTF-8')
         self.set_header('Server', 'TornadoServer/4.5.1; Ubuntu; Python')
+        self.set_header("Access-Control-Allow-Origin", "*")
 
     def logueado(self):
         if not self.get_secure_cookie('usuario'):

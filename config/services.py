@@ -4,11 +4,12 @@
 class Services:
 	def __init__(self):
 		self.diccionario = {
-			'accesos' : 'http://127.0.0.1:5001/',
-			'maestros' : 'http://127.0.0.1:3001/',
-			'gestion' : 'http://127.0.0.1:3002/',
-			'cipher' : 'http://127.0.0.1:5000/',
-			'token' : 'http://127.0.0.1:4567/',
+			'accesos' : 'http://10.151.52.107:5001/',
+			'servicios' : 'http://10.151.52.107:3000/',
+			'maestros' : 'http://10.151.52.107:3001/',
+			'gestion' : 'http://10.151.52.107:3002/',
+			'cipher' : 'http://10.151.52.107:5000/',
+			'token' : 'http://10.151.52.107:2000/',
 		}
 
 	def get(self, key):

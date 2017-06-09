@@ -11,8 +11,6 @@ from config.services import *
 
 class AccesosLoginIndexHandler(BaseHandler):
 	def set_default_headers_nuevo(self):
-		print 'set_default_headers!!!!!!!!!!!!!!!!!!!!!'
-		self.set_header("Access-Control-Allow-Origin", "*")
 		self.logueado()
 		self.validar_permisos([3,5])
 
@@ -28,9 +26,10 @@ class AccesosLoginIndexHandler(BaseHandler):
 		rpta = ""
 
 		usuario = self.get_argument('usuario')
-		contrasenia =  requests.post(services.get('cipher') + 'encode?key=' + helper.get('cipher_key') + '&texto=' + str(self.get_argument('contrasenia'))).text
-		
-		url = services.get('accesos') + 'usuario/validar?usuario=' + str(usuario) + '&contrasenia=' + str(contrasenia)
+		#contrasenia =  requests.post(services.get('cipher') + 'encode?key=' + helper.get('cipher_key') + '&texto=' + str(self.get_argument('contrasenia'))).text
+		contrasenia = self.get_argument('contrasenia')
+
+		url = services.get('servicios') + 'usuario/validar?usuario=' + str(usuario) + '&contrasenia=' + str(contrasenia)
 		response = requests.post(url)
 		#print response.text
 		if str(response.text) == '1':
@@ -39,5 +38,5 @@ class AccesosLoginIndexHandler(BaseHandler):
 			rpta = {'token' : token['mensaje'][0], 'existe' : 1}
 		else:
 			rpta = {'existe' : 0}
-		#print json.dumps(rpta)
+		print json.dumps(rpta)
 		self.write(json.dumps(rpta))
